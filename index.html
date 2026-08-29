@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="WorldChat — meet people worldwide and discover your blind date.">
+  <title>WorldChat — Meet the World</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="toast" class="toast"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#" onclick="showPage('home'); return false;">
+      <span class="brand-mark">🌍</span>
+      <span>World<span>Chat</span></span>
+    </a>
+    <nav>
+      <button class="nav-link active" data-page="home" onclick="showPage('home')">Home</button>
+      <button class="nav-link" data-page="chat" onclick="showPage('chat')">Chat</button>
+      <button class="nav-link" data-page="blind" onclick="showPage('blind')">Blind Date</button>
+      <button class="nav-link" data-page="premium" onclick="showPage('premium')">Premium</button>
+    </nav>
+    <div class="top-actions">
+      <button class="ghost-btn" onclick="showPage('login')">Log in</button>
+      <button class="primary-btn small" onclick="showPage('login')">Join free</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="page active-page">
+      <div class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="pulse"></span> People are chatting worldwide</div>
+          <h1>Meet the world.<br><span>Start a conversation.</span></h1>
+          <p>Jump into friendly international chats or let Blind Date introduce you to someone unexpected.</p>
+          <div class="hero-buttons">
+            <button class="primary-btn" onclick="showPage('login')">Start chatting <span>→</span></button>
+            <button class="secondary-btn" onclick="showPage('blind')">🎭 Try Blind Date</button>
+          </div>
+          <div class="trust-row">
+            <span>🌍 120+ countries</span>
+            <span>💬 Friendly rooms</span>
+            <span>🛡️ Block & report</span>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="floating-card top">
+            <span class="avatar a1">A</span>
+            <div><b>Ana</b><small>🇧🇷 Brazil</small></div>
+            <span class="online-dot"></span>
+          </div>
+          <div class="world-orb">
+            <div class="orb-glow"></div>
+            <div class="orb">🌎</div>
+            <span class="orbit-dot d1">🇬🇭</span>
+            <span class="orbit-dot d2">🇺🇸</span>
+            <span class="orbit-dot d3">🇯🇵</span>
+            <span class="orbit-dot d4">🇫🇷</span>
+          </div>
+          <div class="floating-card bottom">
+            <div class="mini-stat"><strong>1,248</strong><small>online now</small></div>
+            <div class="live-pill">LIVE</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature">
+          <div class="feature-icon">🌐</div>
+          <h3>International Chat</h3>
+          <p>Meet people from different countries in one friendly global room.</p>
+          <button onclick="showPage('chat')">Explore chat →</button>
+        </article>
+        <article class="feature featured">
+          <div class="feature-icon">🎭</div>
+          <h3>Blind Date</h3>
+          <p>Get paired with someone new and reveal your profiles as the conversation grows.</p>
+          <button onclick="showPage('blind')">Find a match →</button>
+        </article>
+        <article class="feature">
+          <div class="feature-icon">💎</div>
+          <h3>Go Premium</h3>
+          <p>Remove ads and unlock extra ways to personalize your experience.</p>
+          <button onclick="showPage('premium')">See Premium →</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="login" class="page">
+      <div class="auth-wrap">
+        <div class="auth-card">
+          <div class="auth-logo">🌍</div>
+          <h2>Welcome to WorldChat</h2>
+          <p class="muted">Join the conversation in a few seconds.</p>
+          <button class="social google" onclick="loginDemo('Google')"><span>G</span> Continue with Google</button>
+          <button class="social apple" onclick="loginDemo('Apple')"><span></span> Continue with Apple</button>
+          <button class="social facebook" onclick="loginDemo('Facebook')"><span>f</span> Continue with Facebook</button>
+          <button class="social x" onclick="loginDemo('X')"><span>𝕏</span> Continue with X</button>
+          <button class="social microsoft" onclick="loginDemo('Microsoft')"><span>▦</span> Continue with Microsoft</button>
+          <div class="or"><span>or</span></div>
+          <button class="email-btn" onclick="openProfileSetup()">✉️ Continue with Email</button>
+          <button class="guest-btn" onclick="continueGuest()">👻 Continue as Guest</button>
+          <p class="tiny">By continuing, you agree to use WorldChat respectfully.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="profile-setup" class="page">
+      <div class="auth-wrap">
+        <div class="auth-card setup">
+          <div class="step">STEP 1 OF 1</div>
+          <h2>Make your profile</h2>
+          <p class="muted">Just two things. No long registration form.</p>
+          <label>Username</label>
+          <input id="username" maxlength="20" placeholder="e.g. Malvin" autocomplete="off">
+          <label>Country / location</label>
+          <select id="country">
+            <option value="">Choose your country</option>
+            <option>🇬🇭 Ghana</option><option>🇺🇸 United States</option><option>🇬🇧 United Kingdom</option>
+            <option>🇨🇦 Canada</option><option>🇧🇷 Brazil</option><option>🇫🇷 France</option>
+            <option>🇩🇪 Germany</option><option>🇯🇵 Japan</option><option>🇰🇷 South Korea</option>
+            <option>🇳🇬 Nigeria</option><option>🇿🇦 South Africa</option><option>🇦🇺 Australia</option>
+            <option>🇮🇳 India</option><option>🇵🇭 Philippines</option><option>🌍 Other</option>
+          </select>
+          <button class="primary-btn full" onclick="finishProfile()">Continue →</button>
+          <button class="back-link" onclick="showPage('login')">← Back</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="ad" class="page">
+      <div class="ad-wrap">
+        <div class="ad-card">
+          <div class="ad-label">ADVERTISEMENT</div>
+          <div class="ad-placeholder">
+            <div class="ad-symbol">AD</div>
+            <h3>Your advertisement goes here</h3>
+            <p>This placeholder can later be replaced by an approved ad network.</p>
+          </div>
+          <div class="countdown"><span id="timer">15</span></div>
+          <p class="ad-note">Your chat will unlock automatically when the short ad period ends.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="chat" class="page app-page">
+      <div class="app-shell">
+        <aside class="sidebar">
+          <div class="sidebar-title"><b>Rooms</b><span>+</span></div>
+          <button class="room active"><span>🌐</span><div><b>International</b><small>1,248 online</small></div></button>
+          <button class="room"><span>😂</span><div><b>Fun & Random</b><small>324 online</small></div></button>
+          <button class="room"><span>🎵</span><div><b>Music</b><small>189 online</small></div></button>
+          <button class="room"><span>🎮</span><div><b>Gaming</b><small>241 online</small></div></button>
+          <div class="sidebar-bottom">
+            <button onclick="showPage('blind')">🎭 Blind Date</button>
+            <button onclick="showPage('premium')">💎 Premium</button>
+          </div>
+        </aside>
+
+        <div class="chat-panel">
+          <div class="chat-head">
+            <div><h2>🌐 International</h2><span><i></i> 1,248 people online</span></div>
+            <button class="icon-btn">•••</button>
+          </div>
+          <div id="messages" class="messages">
+            <div class="date-divider">TODAY</div>
+            <div class="message"><span class="avatar a2">Y</span><div><div class="msg-meta"><b>Yuki</b><small>🇯🇵 Japan · 2m</small></div><p>Hello everyone! 👋</p></div></div>
+            <div class="message"><span class="avatar a3">J</span><div><div class="msg-meta"><b>James</b><small>🇬🇧 UK · 1m</small></div><p>What's everyone up to today?</p></div></div>
+            <div class="message mine"><div><div class="msg-meta"><b>You</b><small>now</small></div><p>Just checking out WorldChat 😄</p></div><span class="avatar me">M</span></div>
+            <div class="message"><span class="avatar a4">A</span><div><div class="msg-meta"><b>Ama</b><small>🇬🇭 Ghana · now</small></div><p>Welcome! 🌍</p></div></div>
+          </div>
+          <form class="composer" onsubmit="sendMessage(event)">
+            <button type="button" class="plus">+</button>
+            <input id="messageInput" placeholder="Write a message..." autocomplete="off">
+            <button class="send" type="submit">➤</button>
+          </form>
+          <div class="chat-disclaimer">Be kind. Never share passwords, payment details, or private information.</div>
+        </div>
+
+        <aside class="people">
+          <div class="people-head"><b>Online now</b><span>See all</span></div>
+          <div class="person"><span class="avatar a1">A</span><div><b>Ana</b><small>🇧🇷 Brazil</small></div><i></i></div>
+          <div class="person"><span class="avatar a2">Y</span><div><b>Yuki</b><small>🇯🇵 Japan</small></div><i></i></div>
+          <div class="person"><span class="avatar a3">J</span><div><b>James</b><small>🇬🇧 UK</small></div><i></i></div>
+          <div class="person"><span class="avatar a4">A</span><div><b>Ama</b><small>🇬🇭 Ghana</small></div><i></i></div>
+          <button class="blind-mini" onclick="showPage('blind')">🎭 Find a Blind Date</button>
+        </aside>
+      </div>
+    </section>
+
+    <section id="blind" class="page">
+      <div class="blind-page">
+        <div class="blind-copy">
+          <div class="eyebrow">🎭 BLIND DATE</div>
+          <h2>Someone out there<br><span>is waiting to meet you.</span></h2>
+          <p>Get paired randomly. Start with a conversation, then reveal more when you're both ready.</p>
+          <div class="rules">
+            <div><span>01</span><b>Get paired</b><small>We find a random person online.</small></div>
+            <div><span>02</span><b>Start talking</b><small>Chat without pressure.</small></div>
+            <div><span>03</span><b>Reveal</b><small>Choose what you want to share.</small></div>
+          </div>
+          <button class="primary-btn" id="matchBtn" onclick="startMatch()">🎲 Find my match</button>
+        </div>
+        <div class="match-card" id="matchCard">
+          <div class="match-orb">?</div>
+          <div class="match-status">READY WHEN YOU ARE</div>
+          <h3>Your next conversation</h3>
+          <p>We won't reveal the other person's profile until a match is made.</p>
+          <div class="match-tags"><span>🌍 Anywhere</span><span>💬 Friendly</span><span>🔒 Private</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="premium" class="page">
+      <div class="premium-page">
+        <div class="premium-hero">
+          <div class="premium-badge">💎 PREMIUM</div>
+          <h2>Chat without interruptions.</h2>
+          <p>One simple membership. No ads while you explore WorldChat.</p>
+        </div>
+        <div class="price-card">
+          <div class="price-top"><span>WorldChat Premium</span><span class="popular">POPULAR</span></div>
+          <div class="price">$9.99 <small>/ month</small></div>
+          <p>Cancel anytime.</p>
+          <div class="checks">
+            <div>✓ Remove advertisements</div>
+            <div>✓ Premium profile badge</div>
+            <div>✓ Enhanced Blind Date controls</div>
+            <div>✓ Profile boost</div>
+            <div>✓ Premium themes</div>
+          </div>
+          <button class="primary-btn full" onclick="showToast('Checkout will be connected to your payment provider.')">Subscribe for $9.99/month</button>
+          <small class="secure">🔒 Secure checkout handled by a payment provider</small>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>🌍 <b>WorldChat</b> · Meet the world.</div>
+    <div>Safety · Privacy · Terms · Contact</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
